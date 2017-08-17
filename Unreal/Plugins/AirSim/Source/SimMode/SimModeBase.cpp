@@ -151,7 +151,7 @@ void ASimModeBase::reset()
     //Should be overridden by derived classes
 }
 
-AVehiclePawnBase* ASimModeBase::getFpvVehiclePawn()
+AVehiclePawnBase* ASimModeBase::getFpvVehiclePawn(int indx)
 {
     //Should be overridden by derived classes
     return nullptr;

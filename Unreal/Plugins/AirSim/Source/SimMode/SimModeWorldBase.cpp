@@ -28,7 +28,7 @@ void ASimModeWorldBase::BeginPlay()
         world_.startAsyncUpdator(30000000LL);
 
         manual_pose_controller->initializeForPlay();
-        manual_pose_controller->setActor(getFpvVehiclePawn());
+        manual_pose_controller->setActor(getFpvVehiclePawn(0));
     }
     else
         world_.startAsyncUpdator(3000000LL);

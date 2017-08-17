@@ -42,7 +42,7 @@ public:
 
     //must be implemented by derived class
     //can't use pure virtual because of restriction with Unreal
-    virtual AVehiclePawnBase* getFpvVehiclePawn();
+    virtual AVehiclePawnBase* getFpvVehiclePawn(int indx = 0);
 
     RecordingFile& getRecordingFile();
 

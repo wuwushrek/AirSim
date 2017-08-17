@@ -23,15 +23,20 @@ public:
         settings.getChild(vehicle_name, child);
 
         std::unique_ptr<MultiRotorParams> config;
-
-        if (vehicle_name == "Pixhawk") {
+        if (vehicle_name == "RosFlight") {
+            config.reset(new RosFlightQuadX(child));
+        } else if (vehicle_name == "SimpleFlight") {
+            config.reset(new SimpleFlightQuadX(child));
+        } else
+            config.reset(new Px4MultiRotor(child));
+        /*if (vehicle_name == "Pixhawk") {
             config.reset(new Px4MultiRotor(child));
         } else if (vehicle_name == "RosFlight") {
             config.reset(new RosFlightQuadX(child));
         } else if (vehicle_name == "SimpleFlight") {
             config.reset(new SimpleFlightQuadX(child));
         } else
-            throw std::runtime_error(Utils::stringf("Cannot create vehicle config because vehicle name '%s' is not recognized", vehicle_name.c_str()));
+            throw std::runtime_error(Utils::stringf("Cannot create vehicle config because vehicle name '%s' is not recognized", vehicle_name.c_str()));*/
 
         return config;
     }

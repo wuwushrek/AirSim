@@ -40,11 +40,19 @@ void ASimHUD::BeginPlay()
     simmode_spawn_params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
     simmode_ = this->GetWorld()->SpawnActor<ASimModeWorldMultiRotor>(FVector::ZeroVector, FRotator::ZeroRotator, simmode_spawn_params);
 
-    subwindow_cameras_[0] = subwindow_cameras_[1] = subwindow_cameras_[2] = simmode_->getFpvVehiclePawn()->getCamera();
-    subwindow_camera_types_[0] = ImageType_::Depth;
+    subwindow_cameras_[0] = simmode_->getFpvVehiclePawn(0)->getCamera();
+    subwindow_cameras_[1] = simmode_->getFpvVehiclePawn(1)->getCamera();
+    subwindow_cameras_[2] = simmode_->getFpvVehiclePawn(2)->getCamera();
+
+    //subwindow_cameras_[0] = subwindow_cameras_[1] = subwindow_cameras_[2] = simmode_->getFpvVehiclePawn()->getCamera();
+    subwindow_camera_types_[0] = ImageType_::Scene;
+    subwindow_camera_types_[1] = ImageType_::Scene;
+    subwindow_camera_types_[2] = ImageType_::Depth;
+
+    /*subwindow_camera_types_[0] = ImageType_::Depth;
     subwindow_camera_types_[1] = ImageType_::Segmentation;
-    subwindow_camera_types_[2] = ImageType_::Scene;
-    subwindow_visible_[0] = subwindow_visible_[1] = subwindow_visible_[2] = false;
+    subwindow_camera_types_[2] = ImageType_::Scene;*/
+    subwindow_visible_[0] = subwindow_visible_[1] = subwindow_visible_[2] = true;
 
     setupInputBindings();
 

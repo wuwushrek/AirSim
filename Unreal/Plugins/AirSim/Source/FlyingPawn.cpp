@@ -90,3 +90,8 @@ void AFlyingPawn::setupInputBindings()
 {
     //UAirBlueprintLib::EnableInput(this);
 }
+
+std::string AFlyingPawn::getVehicleName()
+{
+    return std::string(TCHAR_TO_UTF8(*VehicleName));
+}

@@ -60,6 +60,9 @@ void ACameraDirector::setCameras(APIPCamera* external_camera, AVehiclePawnBase* 
     default:
         throw std::out_of_range("Unknown view mode specified in CameraDirector::initializeForBeginPlay");
     }
+    camera_start_location_ = this->GetActorLocation();
+    camera_start_rotation_ = this->GetActorRotation();
+    initial_ground_obs_offset_ = camera_start_location_ - follow_actor_->GetActorLocation();
 }
 
 void ACameraDirector::setMode(ECameraDirectorMode mode)

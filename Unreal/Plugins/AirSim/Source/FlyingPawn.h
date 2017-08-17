@@ -28,6 +28,10 @@ public: //blueprint
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debugging")
         float RotatorFactor = 1.0f;
 
+    //Name of the quad for finding him in json setting
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Vehicule_Setting")
+        FString VehicleName = "Pixhawk";
+
     virtual void initializeForBeginPlay() override;
 
 private: //methods
